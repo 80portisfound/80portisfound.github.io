@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bongjun — Quant Data Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #111;
+    background: #fff;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 56px;
+  }
+
+  .header-left h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+
+  .header-left p {
+    font-size: 14px;
+    color: #666;
+  }
+
+  nav {
+    display: flex;
+    gap: 20px;
+    padding-top: 6px;
+  }
+
+  nav a {
+    font-size: 14px;
+    color: #111;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  nav a:hover { color: #555; }
+  nav a.active { color: #2563eb; }
+
+  /* SECTIONS */
+  section {
+    margin-bottom: 56px;
+  }
+
+  section h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .section-divider {
+    height: 1px;
+    background: #e0e0e0;
+    margin-bottom: 24px;
+  }
+
+  /* ABOUT */
+  .about-text p {
+    font-size: 15px;
+    color: #222;
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+
+  .about-text a {
+    color: #2563eb;
+    text-decoration: underline;
+    text-decoration-color: rgba(37,99,235,0.3);
+    text-underline-offset: 2px;
+  }
+
+  .about-text a:hover { text-decoration-color: #2563eb; }
+
+  /* UPDATES */
+  .updates-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .updates-list li {
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .updates-list .update-date {
+    color: #999;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .updates-list a {
+    color: #2563eb;
+    text-decoration: underline;
+    text-decoration-color: rgba(37,99,235,0.3);
+    text-underline-offset: 2px;
+  }
+
+  /* RESEARCH */
+  .research-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .research-item {}
+
+  .research-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #111;
+    margin-bottom: 4px;
+  }
+
+  .research-meta {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+  }
+
+  .research-meta span {
+    margin-right: 12px;
+  }
+
+  .research-desc {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.65;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .badge-wip { background: #fef3c7; color: #92400e; }
+  .badge-plan { background: #eff6ff; color: #1d4ed8; }
+  .badge-done { background: #f0fdf4; color: #166534; }
+
+  /* PROJECTS */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .project-item {}
+
+  .project-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .project-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #111;
+  }
+
+  .project-title a {
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .project-title a:hover { border-color: #111; }
+
+  .project-year {
+    font-size: 13px;
+    color: #999;
+  }
+
+  .project-type {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 6px;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+
+  .stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .stag {
+    font-size: 12px;
+    padding: 2px 8px;
+    background: #f5f5f5;
+    color: #555;
+    border-radius: 3px;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .skill-group h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: #999;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .skill-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .skill-group ul li {
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-group ul li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #ccc;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+    font-size: 13px;
+    color: #999;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer a {
+    color: #999;
+    text-decoration: none;
+  }
+
+  footer a:hover { color: #333; }
+
+  @media (max-width: 600px) {
+    header { flex-direction: column; gap: 16px; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    nav { flex-wrap: wrap; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <h1>Bongjun</h1>
+    <p>Quant Data Engineer · Ajou University</p>
+  </div>
+  <nav>
+    <a href="#about" class="active">home</a>
+    <a href="#research">research</a>
+    <a href="#projects">projects</a>
+    <a href="#skills">skills</a>
+    <a href="#contact">contact</a>
+    <a href="https://github.com/80portisfound" target="_blank">github</a>
+  </nav>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <div class="section-divider"></div>
+  <div class="about-text">
+    <p>
+      I'm Bongjun, a second-year Computer Science student at
+      <a href="https://www.ajou.ac.kr" target="_blank">Ajou University</a>,
+      working at the intersection of <strong>financial systems</strong>,
+      <strong>data engineering</strong>, and <strong>blockchain infrastructure</strong>.
+    </p>
+    <p>
+      My goal is to pursue the <a href="https://www.heinz.cmu.edu/programs/information-systems-management-master/bida" target="_blank">CMU MISM-BIDA</a> program
+      and build a career as a <strong>financial Data Engineer</strong> at institutions like JP Morgan,
+      where I can apply data-driven approaches to financial markets and infrastructure.
+    </p>
+    <p>
+      I am genuinely passionate about investing and finance — particularly in emerging paradigms
+      such as blockchain-based securities (STO) and decentralized finance.
+      I believe that the next major shift in financial infrastructure will be built on programmable,
+      verifiable, and decentralized systems.
+    </p>
+  </div>
+</section>
+
+<!-- UPDATES -->
+<section id="updates">
+  <h2>Updates</h2>
+  <div class="section-divider"></div>
+  <ul class="updates-list">
+    <li>
+      🔬 <span>Started research on <a href="https://github.com/80portisfound/blockchain-research">ERC-20 vs ERC-1400</a></span>
+      <span class="update-date">— April 2026</span>
+    </li>
+    <li>
+      🏗️ <span>Building AIRouter+ MVP — DID-based AI API router on Ethereum Sepolia</span>
+      <span class="update-date">— 2026</span>
+    </li>
+  </ul>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <h2>Research</h2>
+  <div class="section-divider"></div>
+  <div class="research-list">
+
+    <div class="research-item">
+      <div class="research-title">
+        ERC-20 vs ERC-1400: Why Security Tokens Need a Different Standard
+        &nbsp;<span class="badge badge-wip">In Progress</span>
+      </div>
+      <div class="research-meta">
+        <span>Token Standards · STO</span>
+        <span>April 2026</span>
+      </div>
+      <div class="research-desc">
+        Comparative analysis of ERC-20 and ERC-1400 at the code level, examining why
+        regulatory compliance, transfer restrictions, and investor protection make a
+        dedicated security token standard essential for the future of tokenized finance.
+        [<a href="https://github.com/80portisfound/blockchain-research" target="_blank" style="color:#2563eb;">GitHub</a>]
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="section-divider"></div>
+  <div class="projects-list">
+
+    <div class="project-item">
+      <div class="project-header">
+        <div class="project-title">
+          <a href="https://github.com/80portisfound" target="_blank">AIRouter+</a>
+        </div>
+        <span class="project-year">2025–2026</span>
+      </div>
+      <div class="project-type">Blockchain · AI Infrastructure</div>
+      <div class="project-desc">
+        DID-based intelligent AI API router and marketplace integrating multiple LLMs
+        with ML-based model recommendation and P2P credit trading using an AIR token
+        on Ethereum's Sepolia testnet.  
+      </div>
+      <div class="stack-tags">
+        <span class="stag">Solidity</span>
+        <span class="stag">Hardhat</span>
+        <span class="stag">FastAPI</span>
+        <span class="stag">React</span>
+        <span class="stag">scikit-learn</span>
+        <span class="stag">PostgreSQL</span>
+        <span class="stag">DID/VC</span>
+        <span class="stag">Redis</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <div class="project-title">
+          <a href="https://github.com/80portisfound" target="_blank">AI Collaboration Platform</a>
+        </div>
+        <span class="project-year">2025</span>
+      </div>
+      <div class="project-type">AI · Full-Stack</div>
+      <div class="project-desc">
+        Club-internal AI-integrated collaboration platform with pgvector-based semantic search
+        and Claude API integration. Designed as both a functional tool and a portfolio asset,
+        delivered on an 8-week roadmap.
+      </div>
+      <div class="stack-tags">
+        <span class="stag">FastAPI</span>
+        <span class="stag">PostgreSQL</span>
+        <span class="stag">pgvector</span>
+        <span class="stag">Claude API</span>
+        <span class="stag">Next.js</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <div class="project-title">
+          <a href="https://github.com/80portisfound" target="_blank">Campus Matching Service</a>
+        </div>
+        <span class="project-year">2024</span>
+      </div>
+      <div class="project-type">Semantic Web</div>
+      <div class="project-desc">
+        Semantic web-enhanced campus matching platform with OWL/RDF ontology modeling,
+        Apache Jena Fuseki triple store, and SPARQL query engine for intelligent user matching.
+      </div>
+      <div class="stack-tags">
+        <span class="stag">Spring Boot</span>
+        <span class="stag">OWL/RDF</span>
+        <span class="stag">SPARQL</span>
+        <span class="stag">Apache Jena</span>
+        <span class="stag">React</span>
+        <span class="stag">PostgreSQL</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="section-divider"></div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Data & Finance</h3>
+      <ul>
+        <li>Python</li>
+        <li>SQL / PostgreSQL</li>
+        <li>pgvector</li>
+        <li>pandas / numpy</li>
+        <li>scikit-learn</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h3>Engineering</h3>
+      <ul>
+        <li>FastAPI</li>
+        <li>Java / Spring Boot</li>
+        <li>React / Next.js</li>
+        <li>Docker</li>
+        <li>Redis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="section-divider"></div>
+  <div class="about-text">
+    <p>Feel free to reach out for internship opportunities, research collaboration, or conversations about quant finance, data engineering, and blockchain.</p>
+  </div>
+  <ul class="updates-list" style="margin-top: 16px;">
+    <li>
+      <span>GitHub</span>
+      <span class="update-date">— <a href="https://github.com/80portisfound" target="_blank">github.com/80portisfound</a></span>
+    </li>
+    <li>
+      <span>LinkedIn</span>
+      <span class="update-date">— <a href="https://www.linkedin.com/in/%EB%B4%89%EC%A4%80-%EC%86%A1-03992b300/" target="_blank">linkedin.com/in/봉준-송</a></span>
+    </li>
+    <li>
+      <span>Research</span>
+      <span class="update-date">— <a href="https://github.com/80portisfound/blockchain-research" target="_blank">blockchain-research</a></span>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  <span>© 2026 Bongjun · Ajou University</span>
+  <span>
+    <a href="https://github.com/80portisfound" target="_blank">GitHub</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/%EB%B4%89%EC%A4%80-%EC%86%A1-03992b300/" target="_blank">LinkedIn</a>
+  </span>
+</footer>
+
+</body>
+</html>
