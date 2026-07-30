@@ -1,0 +1,38 @@
+---
+layout: default
+title: Blog
+description: AI, data engineering, systems에 관해 공부하고 실험한 내용을 기록합니다.
+permalink: /blog/
+---
+<section class="blog-hero">
+  <p class="eyebrow">Bongjune's field notes</p>
+  <h1>Ideas, taken apart<br>and put back together.</h1>
+  <p>AI, data engineering, systems에 관해 공부하고 실험한 내용을 기록합니다. 복잡한 개념을 직접 계산하고 구현할 수 있는 형태로 정리합니다.</p>
+</section>
+
+<section class="post-list" aria-labelledby="latest-notes">
+  <div class="post-list__heading">
+    <h2 id="latest-notes">Latest notes</h2>
+    <span>{{ site.posts | size }} article{% if site.posts.size != 1 %}s{% endif %}</span>
+  </div>
+
+  {% for post in site.posts %}
+    <article class="post-card">
+      <a href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}"></a>
+      <div class="post-card__number">0{{ forloop.index }}</div>
+      <div class="post-card__body">
+        <div class="post-card__meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+          <span>{{ post.reading_time | default: 10 }} min</span>
+        </div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.description }}</p>
+        <ul class="tag-list">
+          {% for tag in post.tags limit:4 %}<li>{{ tag }}</li>{% endfor %}
+        </ul>
+      </div>
+      <span class="post-card__arrow">↗</span>
+    </article>
+  {% endfor %}
+</section>
+
