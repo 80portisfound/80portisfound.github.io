@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'ko-KR' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f5ef">
+    <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+    {% feed_meta %}
+    {% seo %}
+    {% if page.math %}
+      <script>
+        window.MathJax = {
+          tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+          options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+        };
+      </script>
+      <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    {% endif %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-brand" href="{{ '/' | relative_url }}" aria-label="Bongjune home">
+          <span class="site-brand__mark">B</span>
+          <span>
+            <strong>Bongjune</strong>
+            <small>notes on systems &amp; intelligence</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="{{ '/' | relative_url }}">Portfolio</a>
+          <a href="{{ '/blog/' | relative_url }}">Blog</a>
+          <a href="https://github.com/80portisfound" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>{{ content }}</main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Bongjune Song</strong>
+        <span>Ajou University · Computer Science</span>
+      </div>
+      <p>Built with Jekyll and GitHub Pages.</p>
+    </footer>
+  </body>
+</html>

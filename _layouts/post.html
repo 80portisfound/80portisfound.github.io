@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-hero">
+    <a class="eyebrow" href="{{ '/blog/' | relative_url }}">← All notes</a>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
+      <span>{{ page.reading_time | default: 10 }} min read</span>
+    </div>
+    <h1>{{ page.title }}</h1>
+    <p class="post-deck">{{ page.description }}</p>
+    {% if page.tags %}
+      <ul class="tag-list" aria-label="Tags">
+        {% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+  </header>
+
+  <div class="post-shell">
+    <aside class="post-aside" aria-label="Article details">
+      <p class="post-aside__label">Filed under</p>
+      <p>AI Engineering<br>Fundamentals</p>
+      <a href="https://github.com/80portisfound" target="_blank" rel="noreferrer">Follow on GitHub ↗</a>
+    </aside>
+    <div class="post-content">
+      {{ content }}
+    </div>
+  </div>
+
+  <footer class="post-end">
+    <p>끝까지 읽어주셔서 감사합니다.</p>
+    <a href="{{ '/blog/' | relative_url }}">다른 글 보기 →</a>
+  </footer>
+</article>
+

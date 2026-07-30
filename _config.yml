@@ -1,0 +1,19 @@
+title: Bongjune's Blog
+description: AI, data engineering, systems, and the ideas behind them.
+url: https://80portisfound.github.io
+baseurl: ""
+lang: ko-KR
+timezone: Asia/Seoul
+permalink: /blog/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
