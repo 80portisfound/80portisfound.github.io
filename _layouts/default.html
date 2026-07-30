@@ -32,9 +32,11 @@
           </span>
         </a>
         <nav class="site-nav" aria-label="Primary navigation">
-          <a href="{{ '/' | relative_url }}">Portfolio</a>
+          <a class="nav-secondary" href="{{ '/' | relative_url }}">Portfolio</a>
           <a href="{{ '/blog/' | relative_url }}">Blog</a>
-          <a href="https://github.com/80portisfound" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="{{ '/blog/#development' | relative_url }}">개발</a>
+          <a href="{{ '/blog/#investment' | relative_url }}">투자</a>
+          <a class="nav-secondary" href="https://github.com/80portisfound" target="_blank" rel="noreferrer">GitHub ↗</a>
         </nav>
       </div>
     </header>
