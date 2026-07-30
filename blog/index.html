@@ -1,22 +1,41 @@
 ---
 layout: default
-title: Blog
-description: AI, data engineering, systems에 관해 공부하고 실험한 내용을 기록합니다.
+title: 송봉준의 연구실
+description: 개발과 투자를 공부하고 실험하며 남기는 송봉준의 연구 노트.
 permalink: /blog/
 ---
+{% assign development_posts = site.posts | where: "category", "development" %}
+{% assign investment_posts = site.posts | where: "category", "investment" %}
+
 <section class="blog-hero">
-  <p class="eyebrow">Bongjune's field notes</p>
-  <h1>Ideas, taken apart<br>and put back together.</h1>
-  <p>AI, data engineering, systems에 관해 공부하고 실험한 내용을 기록합니다. 복잡한 개념을 직접 계산하고 구현할 수 있는 형태로 정리합니다.</p>
+  <p class="eyebrow">Song Bongjune's research log</p>
+  <h1>송봉준의<br>연구실</h1>
+  <p>개발과 투자라는 두 가지 렌즈로 기술과 시장을 관찰합니다. 직접 공부하고 계산하고 실험한 내용을 오래 남을 수 있는 기록으로 정리합니다.</p>
 </section>
 
-<section class="post-list" aria-labelledby="latest-notes">
+<nav class="category-nav" aria-label="글 카테고리">
+  <a href="#development">
+    <span>01</span>
+    <strong>개발</strong>
+    <small>{{ development_posts | size }} notes</small>
+  </a>
+  <a href="#investment">
+    <span>02</span>
+    <strong>투자</strong>
+    <small>{{ investment_posts | size }} notes</small>
+  </a>
+</nav>
+
+<section class="post-list category-section" id="development" aria-labelledby="development-heading">
   <div class="post-list__heading">
-    <h2 id="latest-notes">Latest notes</h2>
-    <span>{{ site.posts | size }} article{% if site.posts.size != 1 %}s{% endif %}</span>
+    <div>
+      <span class="category-kicker">01 / Development</span>
+      <h2 id="development-heading">개발</h2>
+    </div>
+    <p>AI · Data Engineering · Systems</p>
   </div>
 
-  {% for post in site.posts %}
+  {% for post in development_posts %}
     <article class="post-card">
       <a href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}"></a>
       <div class="post-card__number">0{{ forloop.index }}</div>
@@ -33,6 +52,40 @@ permalink: /blog/
       </div>
       <span class="post-card__arrow">↗</span>
     </article>
+  {% endfor %}
+</section>
+
+<section class="post-list category-section" id="investment" aria-labelledby="investment-heading">
+  <div class="post-list__heading">
+    <div>
+      <span class="category-kicker">02 / Investment</span>
+      <h2 id="investment-heading">투자</h2>
+    </div>
+    <p>Markets · Companies · Digital Assets</p>
+  </div>
+
+  {% for post in investment_posts %}
+    <article class="post-card">
+      <a href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}"></a>
+      <div class="post-card__number">0{{ forloop.index }}</div>
+      <div class="post-card__body">
+        <div class="post-card__meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+          <span>{{ post.reading_time | default: 10 }} min</span>
+        </div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.description }}</p>
+        <ul class="tag-list">
+          {% for tag in post.tags limit:4 %}<li>{{ tag }}</li>{% endfor %}
+        </ul>
+      </div>
+      <span class="post-card__arrow">↗</span>
+    </article>
+  {% else %}
+    <div class="empty-category">
+      <span>Coming soon</span>
+      <p>첫 투자 노트를 준비하고 있습니다.</p>
+    </div>
   {% endfor %}
 </section>
 

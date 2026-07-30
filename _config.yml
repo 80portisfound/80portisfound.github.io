@@ -1,5 +1,5 @@
-title: Bongjune's Blog
-description: AI, data engineering, systems, and the ideas behind them.
+title: 송봉준의 연구실
+description: 개발과 투자를 공부하고 실험하며 남기는 송봉준의 연구 노트.
 url: https://80portisfound.github.io
 baseurl: ""
 lang: ko-KR
@@ -16,4 +16,3 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-

@@ -19,8 +19,8 @@ layout: default
 
   <div class="post-shell">
     <aside class="post-aside" aria-label="Article details">
-      <p class="post-aside__label">Filed under</p>
-      <p>AI Engineering<br>Fundamentals</p>
+      <p class="post-aside__label">Category</p>
+      <p>{{ page.category_label | default: "연구 노트" }}</p>
       <a href="https://github.com/80portisfound" target="_blank" rel="noreferrer">Follow on GitHub ↗</a>
     </aside>
     <div class="post-content">
@@ -33,4 +33,3 @@ layout: default
     <a href="{{ '/blog/' | relative_url }}">다른 글 보기 →</a>
   </footer>
 </article>
-

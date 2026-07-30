@@ -4,6 +4,8 @@ title: "Transformer 핵심 원리: 토큰화부터 Self-Attention, KV Cache까�
 description: "텍스트가 토큰과 벡터가 되고, Self-Attention과 causal mask를 거쳐 다음 토큰으로 생성되는 과정을 수식과 숫자 예제로 정리합니다."
 date: 2026-07-30 20:00:00 +0900
 tags: [Transformer, LLM, Self-Attention, KV Cache]
+category: development
+category_label: 개발
 reading_time: 12
 math: true
 image: /assets/images/transformer-fundamentals/pipeline.webp
@@ -275,4 +277,3 @@ Transformer 기반 생성 모델의 동작을 순서대로 정리하면 다음�
 
 - Vaswani et al., [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 - Jay Alammar, [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
-
