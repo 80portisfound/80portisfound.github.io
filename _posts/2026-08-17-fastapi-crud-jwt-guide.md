@@ -2,7 +2,7 @@
 layout: post
 title: "FastAPI로 CRUD API 만들기: Pydantic, SQLAlchemy, JWT까지"
 description: "간단한 엔드포인트에서 시작해 요청·응답 검증, SQLAlchemy 2.0 CRUD, 의존성 주입, JWT 인증과 작성자 권한까지 FastAPI 프로젝트를 단계별로 구성합니다."
-date: 2026-08-17 20:00:00 +0900
+date: 2026-08-17 11:30:00 +0900
 tags: [FastAPI, SQLAlchemy, Pydantic, JWT]
 category: development
 category_label: 개발
